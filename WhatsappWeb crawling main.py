@@ -14,17 +14,6 @@ import time
 import sys
 
 
-# In[7]:
-
-#Scroll methods which are not working
-
-#driver.execute_script("window.scrollBy(0,1050)")
-#people.location_once_scrolled_into_view#error
-#people.scrollIntoView()#error
-#driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-#driver.execute_script("element.scrollBy(0,1080)")#error
-
-
 # In[8]:
 
 #Using Microsoft Edge driver. Incase of any other browser download its webdriver and 
@@ -49,18 +38,13 @@ for person in driver.find_elements_by_class_name('X7YrQ'):
     people = person.find_element_by_class_name("_19RFN")
     print("\n\nNAME: ",people.text,"\n")    
     mylist.append(people.text)
-    people.click()
+    people.click()                          #Click on the contact tab to open his/her chat on right side
     
-    #Logic 1- on right side using arrow up key and waiting for 60
-    #seconds so that all chats can be loaded and then scrap it.
-    #driver.find_element_by_xpath("//*[@class='_1_keJ']").send_keys(Keys.ARROW_UP) #To be fixed
-    #time.sleep(60)
-    
-    #Below code for sending page up key also not working
-    #z=driver.find_elements_by_xpath("//*[@class='_1_q7u']").click()
-    #ActionChains(driver) \
-    #            .key_down(Keys.PAGE_UP)
-    #time.sleep(30)
+    xr=driver.find_element_by_xpath("//*[@class='_1_keJ']")
+    xr.click()              
+    for i in range(800):                       #To be fixed[instead of range, need a mechanism to press up key till first chat found]
+        xr.send_keys(Keys.ARROW_UP) 
+    time.sleep(5)
     
 #    x=[]
     y=[]
@@ -68,7 +52,7 @@ for person in driver.find_elements_by_class_name('X7YrQ'):
     y=driver.find_elements_by_xpath("//*[@class='selectable-text invisible-space copyable-text']")
 #    l=len(x)
     l1=len(y)
-#For Details like time,day,media size etc...
+#Below code for Details like time,day,media size etc...
     
 #    counter=0
 #    for i in range(l+1):
@@ -83,10 +67,6 @@ for person in driver.find_elements_by_class_name('X7YrQ'):
     for i in range(l1+1):
         try:
             print("->",y[i].text)
-            time.sleep(5)
-            #Logic 2- Using scroll of right panel. Working but behaviour is abnormal
-            driver.execute_script("arguments[0].scrollIntoView()",y[i]) #need fixing of scroll if key page down does not work
-            #driver.execute_script("arguments[0].scrollIntoView()",x[i])
             counter+=1
         except:
             print("\n\n*************",counter," Chats scraped for this contact!********************")   
