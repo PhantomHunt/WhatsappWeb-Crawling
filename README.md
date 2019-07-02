@@ -16,6 +16,7 @@ I recommend using spider ide with conda environment (Anaconda package).
 I have put in two logics:-
 
 Logic1: Clicking on the contacts one by one and simultaneously crawling the chats for that particular contact.
+
 Logic2:(Recommended) Getting all the contacts first and then searching those contacts and clicking it and then crawling it.
 
 *Note: In both these logics I am able to get only 19 contacts atmost.(Issue)
