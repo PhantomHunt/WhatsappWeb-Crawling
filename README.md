@@ -9,10 +9,14 @@ install selenium- pip install selenium
 
 I am using edge driver. You can use any but must install it and give its .exe path in the driver variable.
 
-I recommend using spider ide. I am also putting .pynb file for people who work in anaconda jupyter notebook.
+I recommend using spider ide with conda environment (Anaconda package). 
 
-If you use jupyter notebook open it in different browser as selenium closes the browser whose web driver is used.
-I use chrome for anaconda and have webdriver for Microsoft edge.
+I have put in two logics:-
+
+Logic1: Clicking on the contacts one by one and simultaneously crawling the chats for that particular contact.
+Logic2:(Recommended) Getting all the contacts first and then searching those contacts and clicking it and then crawling it.
+
+*Note: In both these logics I am able to get only 19 contacts atmost.(Issue)
 
 All the problems in the code are well described in comments and still if you find any difficulty, please whatsapp me -8527467123
 
